@@ -68,15 +68,17 @@ function CreateOrder() {
               defaultValue={address}
             />
           </div>
-          <Button
-            disabled={isLoading}
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(fetchAddress());
-            }}
-          >
-            {!isLoading ? `POSISI?` : "Tunggu..."}
-          </Button>
+          {!address && (
+            <Button
+              disabled={isLoading}
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(fetchAddress());
+              }}
+            >
+              {!isLoading ? `POSISI?` : "Tunggu..."}
+            </Button>
+          )}
         </div>
 
         <div className="flex gap-5 items-center my-4">
